@@ -10,6 +10,15 @@ public class SudokuGenerator
     public static int[][] createBoard(){
         int[][] board = new int[9][9];
         int[] row = {1,2,3,4,5,6,7,8,9};
+
+        /// Randomization
+        for(int i = 0; i < row.length - 1; i++){
+            int random = (int)(Math.random() * (i+1)); 
+            int temp = row[i];
+            row[i] = row[random];
+            row[random] = temp;
+        }
+        
         for (int i = 0; i < board.length; i++){
             int s = shift(i);
             for(int j = 0; j < board[0].length; j++){
